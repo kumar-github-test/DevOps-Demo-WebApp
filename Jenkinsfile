@@ -2,7 +2,7 @@ node {
   
     // Get Artifactory server instance, defined in the Artifactory Plugin administration page
     
-    	def server = Artifactory.server "Artifcatory1"
+    //	def server = Artifactory.server "Artifcatory1"
     
     // Create an Artifactory Maven instance.
     
@@ -15,10 +15,10 @@ node {
 	
     // Set Artifactory repositories for dependencies resolution and artifacts deployment.
     
-        rtMaven.deployer releaseRepo:'libs-release-local', snapshotRepo:'libs-snapshot-local', server: server
-        rtMaven.resolver releaseRepo:'libs-release', snapshotRepo:'libs-snapshot', server: server
+   //     rtMaven.deployer releaseRepo:'libs-release-local', snapshotRepo:'libs-snapshot-local', server: server
+   //     rtMaven.resolver releaseRepo:'libs-release', snapshotRepo:'libs-snapshot', server: server
 //  
-	slackSend channel: 'alerts', message: "Pipeline Started ${env.JOB_NAME} ${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>)", teamDomain: 'devopsbc', tokenCredentialId: 'slack'
+//	slackSend channel: 'alerts', message: "Pipeline Started ${env.JOB_NAME} ${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>)", teamDomain: 'devopsbc', tokenCredentialId: 'slack'
 //	    
     stage('Clone source') {
         git url: 'https://github.com/kumar-github-test/DevOps-Demo-WebApp/'
