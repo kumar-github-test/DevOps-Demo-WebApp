@@ -5,6 +5,10 @@ pipeline {
        maven "Maven3.6.3"
     }
         stages {
+           // Building web app using Maven build	
+           stage('Build Web App') {
+                buildInfo = rtMaven.run pom: 'pom.xml', goals: 'clean install', buildInfo: buildInfo
+                }      
           stage("build & SonarQube analysis") {
             agent any
             steps {
