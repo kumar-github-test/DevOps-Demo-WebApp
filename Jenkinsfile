@@ -3,12 +3,14 @@ pipeline {
         tools
     {
        maven "Maven3.6.3"
+       jdk 'jdk8'
     }
         stages {
            // Building web app using Maven build	
            stage("Build Web App") {
                    steps {
-                buildInfo = rtMaven.run pom: 'pom.xml', goals: 'clean install', buildInfo: buildInfo
+                           sh 'mvn -Dmaven.test.failure.ignore=true install'
+                //buildInfo = rtMaven.run pom: 'pom.xml', goals: 'clean install', buildInfo: buildInfo
                 }  
            }
           stage("build & SonarQube analysis") {
