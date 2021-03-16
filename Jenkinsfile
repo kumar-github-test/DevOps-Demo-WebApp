@@ -3,7 +3,7 @@ pipeline {
         tools
     {
        maven "Maven3.6.3"
-       jdk 'jdk8'
+       jdk 'JDK'
     }
         stages {
            // Building web app using Maven build	
