@@ -6,6 +6,8 @@ pipeline {
        jdk 'JDK'
     }
         
+	stages {
+		
           stage("build & SonarQube analysis") {
               steps {
               withSonarQubeEnv(credentialsId: 'adminsonar-token', installationName: 'sonarqube') 
@@ -15,7 +17,7 @@ pipeline {
             }
           }
 	
-	stages {
+	
            // Building web app using Maven build	
            stage("Build Web App") {
                    steps {
